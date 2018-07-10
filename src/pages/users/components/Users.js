@@ -60,22 +60,31 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
             <a>Edit</a>
           </UserModal>
           <Popconfirm title="Confirm to delete?" onConfirm={deleteHandler.bind(null, record.id)}>
-            <a href="">Delete</a>
+            <a>Delete</a>
           </Popconfirm>
         </span>
       ),
     },
   ];
-
   return (
     <div className={styles.normal}>
       <div>
+        <UserModal record={{}} onOk={createHandler}>
+          <Button type="primary">Create User</Button>
+        </UserModal>
         <Table
           loading={loading}
           columns={columns}
           dataSource={dataSource}
           rowKey={record => record.id}
           pagination={false}
+        />
+        <Pagination
+          className="ant-table-pagination"
+          total={total}
+          current={current}
+          pageSize={PAGE_SIZE}
+          onChange={pageChangeHandler}
         />
       </div>
     </div>

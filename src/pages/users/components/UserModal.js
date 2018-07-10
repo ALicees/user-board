@@ -21,7 +21,7 @@ class UserEditModal extends Component {
 
   hideModelHandler = () => {
     this.setState({
-      visible: false,
+      visible: false, 
     });
   };
 
@@ -34,7 +34,6 @@ class UserEditModal extends Component {
       }
     });
   };
-
   render() {
     const { children } = this.props;
     const { getFieldDecorator } = this.props.form;
@@ -43,7 +42,6 @@ class UserEditModal extends Component {
       labelCol: { span: 6 },
       wrapperCol: { span: 14 },
     };
-
     return (
       <span>
         <span onClick={this.showModelHandler}>
@@ -58,13 +56,16 @@ class UserEditModal extends Component {
           <Form horizontal onSubmit={this.okHandler}>
             <FormItem
               {...formItemLayout}
-              label="Name"
+              label="Name"  
             >
               {
                 getFieldDecorator('name', {
                   initialValue: name,
                 })(<Input />)
               }
+              {
+                
+              } 
             </FormItem>
             <FormItem
               {...formItemLayout}
